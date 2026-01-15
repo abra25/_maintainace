@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Under Maintenance</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f1f5f9;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--dark);
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .loader {
+      width: 65px;
+      height: 65px;
+      border: 6px solid #e5e7eb;
+      border-top: 6px solid var(--primary);
+      border-radius: 50%;
+      margin: 25px auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 35px 0;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: var(--light-gray);
+      padding: 18px 24px;
+      border-radius: 14px;
+      min-width: 95px;
+    }
+
+    .time-box h2 {
+      font-size: 1.9rem;
+      color: var(--primary);
+    }
+
+    .time-box span {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .contact {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .contact i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
+    .socials {
+      margin-top: 25px;
+    }
+
+    .socials a {
+      margin: 0 12px;
+      font-size: 1.6rem;
+      color: var(--dark);
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+      .container {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-tools"></i> _maintainace
+    </div>
+
+    <h1>Website Under Maintenance</h1>
+
+    <p>
+      Our system is temporarily unavailable due to scheduled maintenance.<br />
+      We are improving performance, security, and features.<br />
+      Thank you for your patience — we’ll be back soon.
+    </p>
+
+    <div class="loader"></div>
+
+    <div class="countdown">
+      <div class="time-box">
+        <h2 id="days">00</h2>
+        <span>Days</span>
+      </div>
+      <div class="time-box">
+        <h2 id="hours">00</h2>
+        <span>Hours</span>
+      </div>
+      <div class="time-box">
+        <h2 id="minutes">00</h2>
+        <span>Minutes</span>
+      </div>
+      <div class="time-box">
+        <h2 id="seconds">00</h2>
+        <span>Seconds</span>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div>
+        <i class="fas fa-user"></i> Developed by <strong>MrSolidy</strong>
+      </div>
+      <div>
+        <i class="fab fa-whatsapp"></i> +255 777 617 786
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/abra25" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://facebook.com/mrsolidy" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com/mascom" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/mr-solidy" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <footer>
+      © 2026 _maintince. All Rights Reserved.<br />
+      Built with ❤️ by <strong>MrSolidy</strong>
+    </footer>
+  </div>
+
+  <script>
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 3);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      document.getElementById("days").innerText =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText =
+        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText =
+        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText =
+        Math.floor((distance % (1000 * 60)) / 1000);
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

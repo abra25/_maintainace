@@ -232,13 +232,22 @@
     </footer>
   </div>
   <script>
-  // 🔥 WEKA MUDA HALISI ULIPO DEPLOY SITE
-  const startDate = new Date("2026-03-19T08:00:00Z").getTime();
+  const STORAGE_KEY = "global_countdown_end";
 
-  // siku 9 (fixed kwa wote)
-  const duration = 9 * 24 * 60 * 60 * 1000;
+  let endDate = localStorage.getItem(STORAGE_KEY);
 
-  const endDate = startDate + duration;
+  // 👉 Mara ya kwanza TU (kama backend)
+  if (!endDate) {
+    const now = new Date().getTime();
+
+    const duration = 9 * 24 * 60 * 60 * 1000; // siku 9
+
+    endDate = now + duration;
+
+    localStorage.setItem(STORAGE_KEY, endDate);
+  } else {
+    endDate = parseInt(endDate);
+  }
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -249,6 +258,10 @@
       document.getElementById("hours").innerText = "00";
       document.getElementById("minutes").innerText = "00";
       document.getElementById("seconds").innerText = "00";
+
+      // optional reset
+      // localStorage.removeItem(STORAGE_KEY);
+
       return;
     }
 

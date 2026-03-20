@@ -164,6 +164,21 @@
         padding: 28px;
       }
     }
+    .progress-container {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #2563eb;
+  transition: width 1s linear;
+}
   </style>
 </head>
 
@@ -202,6 +217,10 @@
       </div>
     </div>
 
+    <div class="progress-container">
+      <div id="progress" class="progress-bar"></div>
+    </div>
+
     <div class="contact">
       <div>
         <i class="fas fa-user"></i> Developed by <strong>MrSolidy</strong>
@@ -231,23 +250,14 @@
       Built with ❤️ by <strong>MrSolidy</strong>
     </footer>
   </div>
-  <script>
-  const STORAGE_KEY = "global_countdown_end";
+    <script>
+  // 🔥 WEKA MUDA ULIPOANZA (GLOBAL - BADILISHA HAPA TU)
+  const startDate = new Date("2026-03-20T00:00:00Z").getTime();
 
-  let endDate = localStorage.getItem(STORAGE_KEY);
+  // siku 7
+  const duration = 7 * 24 * 60 * 60 * 1000;
 
-  // 👉 Mara ya kwanza TU (kama backend)
-  if (!endDate) {
-    const now = new Date().getTime();
-
-    const duration = 9 * 24 * 60 * 60 * 1000; // siku 9
-
-    endDate = now + duration;
-
-    localStorage.setItem(STORAGE_KEY, endDate);
-  } else {
-    endDate = parseInt(endDate);
-  }
+  const endDate = startDate + duration;
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -259,12 +269,11 @@
       document.getElementById("minutes").innerText = "00";
       document.getElementById("seconds").innerText = "00";
 
-      // optional reset
-      // localStorage.removeItem(STORAGE_KEY);
-
+      document.getElementById("progress").style.width = "100%";
       return;
     }
 
+    // countdown
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -274,6 +283,12 @@
     document.getElementById("hours").innerText = String(hours).padStart(2, '0');
     document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
     document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+
+    // 🔥 PROGRESS BAR
+    const timePassed = now - startDate;
+    const progressPercent = (timePassed / duration) * 100;
+
+    document.getElementById("progress").style.width = progressPercent + "%";
   }
 
   updateCountdown();
